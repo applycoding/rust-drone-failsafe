@@ -1,0 +1,13 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/failsafe-core",
+    "crates/failsafe-sim",
+    "crates/failsafe-mavlink",
+    "crates/failsafe-wasm",
+]
+
+[workspace.package]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/applycoding/rust-drone-failsafe"

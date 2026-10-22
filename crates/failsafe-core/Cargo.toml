@@ -1,0 +1,15 @@
+[package]
+name = "failsafe-core"
+version = "0.1.0"
+edition = "2024"
+description = "no_std advisory drone failsafe supervisor core"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+libm = "0.2.16"
+
+[dev-dependencies]
+proptest = "1.12.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(fuzzing)'] }

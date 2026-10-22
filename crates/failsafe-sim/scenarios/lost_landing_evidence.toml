@@ -1,0 +1,12 @@
+[meta]
+name = "lost_landing_evidence"
+duration_ms = 8000
+
+[fence]
+vertices = [[-500, -500], [-500, 500], [500, 500], [500, -500]]
+min_alt_m = 5.0
+max_alt_m = 120.0
+
+[[expect]]
+at_ms = 500
+action = "Nominal"

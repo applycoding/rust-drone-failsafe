@@ -1,0 +1,20 @@
+[meta]
+name = "low_battery_far"
+duration_ms = 15000
+
+[fence]
+vertices = [[-500, -500], [-500, 500], [500, 500], [500, -500]]
+min_alt_m = 5.0
+max_alt_m = 120.0
+
+[config]
+usable_capacity_wh = 40.0
+
+[[events]]
+at_ms = 0
+kind = "battery_drain"
+value = 0.5
+
+[[expect]]
+at_ms = 14000
+action = "Nominal"

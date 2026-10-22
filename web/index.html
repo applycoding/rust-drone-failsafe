@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>rust-drone-failsafe demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Advisory drone failsafe (WASM sim)</h1>
+      <p class="disclaimer">
+        Educational and advisory only — not flight-tested, not certified.
+      </p>
+      <canvas id="view" width="640" height="480"></canvas>
+      <div id="status">Action: —</div>
+      <div class="controls">
+        <button id="cut-gcs" type="button">Cut GCS</button>
+        <button id="cut-rc" type="button">Cut RC</button>
+        <button id="kill-gps" type="button">Kill GPS</button>
+        <button id="ekf-fault" type="button">EKF fault</button>
+        <label>
+          Battery drain
+          <input id="drain" type="range" min="0" max="1" step="0.01" value="0.01" />
+        </label>
+        <button id="reset" type="button">Reset</button>
+      </div>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
