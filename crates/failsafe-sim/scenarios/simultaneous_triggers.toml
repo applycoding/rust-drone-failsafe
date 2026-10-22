@@ -1,0 +1,24 @@
+[meta]
+name = "simultaneous_triggers"
+duration_ms = 20000
+
+[fence]
+vertices = [[-500, -500], [-500, 500], [500, 500], [500, -500]]
+min_alt_m = 5.0
+max_alt_m = 120.0
+
+[[events]]
+at_ms = 500
+kind = "cut_gcs"
+
+[[events]]
+at_ms = 600
+kind = "cut_rc"
+
+[[events]]
+at_ms = 700
+kind = "kill_gps"
+
+[[expect]]
+at_ms = 10000
+action = "Land"

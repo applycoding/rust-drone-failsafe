@@ -1,0 +1,45 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 1.5rem;
+  background: #0f1419;
+  color: #e7ecf3;
+}
+
+main {
+  max-width: 720px;
+}
+
+.disclaimer {
+  color: #aab4c0;
+  font-size: 0.95rem;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  border: 1px solid #2a3544;
+  border-radius: 8px;
+  background: #1a2332;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #3d4f66;
+  background: #243044;
+  color: inherit;
+  cursor: pointer;
+}
+
+#status {
+  margin-top: 0.75rem;
+  font-family: ui-monospace, monospace;
+}
