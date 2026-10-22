@@ -2,13 +2,13 @@
 
 [![CI](https://github.com/applycoding/rust-drone-failsafe/actions/workflows/ci.yml/badge.svg)](https://github.com/applycoding/rust-drone-failsafe/actions/workflows/ci.yml)
 
-**Advisory, heap-free drone failsafe supervisor in Rust** — one `no_std` core for Cortex-M4F, a TOML scenario simulator, MAVLink fixture replay, and a browser WASM demo.
+**Advisory, heap-free drone failsafe supervisor in Rust**: one `no_std` core for Cortex-M4F, a TOML scenario simulator, MAVLink fixture replay, and a browser WASM demo.
+
+**Live demo:** [applycoding.github.io/rust-drone-failsafe](https://applycoding.github.io/rust-drone-failsafe/) · **Tutorial:** [How I built a drone failsafe monitor in Rust](https://applycoding.com/tutorials/rust-drone-failsafe-no-std-wasm)
 
 ![Browser demo](docs/demo.svg)
 
 > **Honesty:** This project is **educational and advisory**. It is **not flight-tested** and **not certified**. Logic is validated on synthetic traces and property tests (sampled evidence, not proof). MAVLink fixtures are synthetic. Heap-free / `unsafe`-free claims apply to `failsafe-core` source only.
-
-**Live demo:** GitHub Pages serves `web/` after merge to `main` (see Actions → Pages).
 
 ## Why `no_std` here
 
@@ -59,16 +59,16 @@ cd web && npm ci && npx serve -l 8080
 | No `Disarm` action; `disarm_eligible` gate | Types + unit tests |
 | Disarm hint clears when airborne | `disarm_gate_clears_when_airborne` |
 | Energy worked example (21.5625 Wh RTL @ 1500 m) | `energy` tests |
-| RTL energy monotone in **distance**, piecewise in altitude | proptest props 10–11 |
+| RTL energy monotone in **distance**, piecewise in altitude | proptest props 10 to 11 |
 | 10 scenario expectations | `failsafe-sim` golden tests |
 | WASM smoke (GPS kill → Land) | Playwright in CI |
 
 ## Results and limits
 
-- **Advisory only** — no commands, no MAVLink TX, no certification path.
-- **Energy model** — constant power, flat earth; margin thresholds are tunable heuristics.
-- **MAVLink adapter** — receive-only, untrusted UDP optional; mapping isolated in `map.rs`.
-- **Triggers** — simplified timing vs a full PX4/ArduPilot stack; tuned for teaching and CI.
+- **Advisory only**: no commands, no MAVLink TX, no certification path.
+- **Energy model**: constant power, flat earth; margin thresholds are tunable heuristics.
+- **MAVLink adapter**: receive-only, untrusted UDP optional; mapping isolated in `map.rs`.
+- **Triggers**: simplified timing vs a full PX4/ArduPilot stack; tuned for teaching and CI.
 
 ## Layout
 
@@ -84,4 +84,4 @@ PLAN.md                # build plan (source of truth)
 
 ## License
 
-MIT OR Apache-2.0 — see [LICENSE](LICENSE) and [LICENSE-APACHE](LICENSE-APACHE).
+MIT OR Apache-2.0; see [LICENSE](LICENSE) and [LICENSE-APACHE](LICENSE-APACHE).
