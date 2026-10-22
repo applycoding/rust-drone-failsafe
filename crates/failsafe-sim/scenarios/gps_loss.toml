@@ -1,0 +1,16 @@
+[meta]
+name = "gps_loss"
+duration_ms = 8000
+
+[fence]
+vertices = [[-500, -500], [-500, 500], [500, 500], [500, -500]]
+min_alt_m = 5.0
+max_alt_m = 120.0
+
+[[events]]
+at_ms = 1000
+kind = "kill_gps"
+
+[[expect]]
+at_ms = 3500
+action = "Land"

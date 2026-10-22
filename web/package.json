@@ -1,0 +1,11 @@
+{
+  "name": "rust-drone-failsafe-web",
+  "private": true,
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.51.1",
+    "serve": "14.2.4"
+  }
+}
