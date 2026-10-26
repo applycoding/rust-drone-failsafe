@@ -1,7 +1,5 @@
 # Rust portfolio demo: ideas, pick and build plan
 
-Prepared 2026-10-22 (America/Denver) for Arpan Bom (`applycoding`). **Not built.** A Cursor cloud agent builds it later from the PLAN section below (lifecycle step 5: commit PLAN.md to the new repo, model composer-2.5, fast=false).
-
 ## Overlap check
 `gh repo list applycoding` shows **no public Rust repo**. Related repos to stay clear of:
 - `cpp-flight-controller`: C++20 PID control and Kalman/complementary fusion.
@@ -23,21 +21,6 @@ Prepared 2026-10-22 (America/Denver) for Arpan Bom (`applycoding`). **Not built.
 - It's the only idea that ties together drones, embedded/edge and safety-critical Rust in one small repo with no overlap.
 - It runs the same `no_std` core on three targets (MCU cross-build, host sim, browser). That's a memorable tutorial hook and a live demo for the profile.
 - Every claim can be checked in CI with no hardware.
-
-## How this plan was made (plan-check-build lifecycle)
-1. **Draft:** Antigravity, model `claude-opus-5-5-high` (planning only).
-2. **Check:** `codex exec --sandbox workspace-write`, which wrote 34 findings (1 critical, about 25 high).
-3. **Verify (by hand):**
-   - Versions confirmed on the crates.io API today: Rust 1.99.1, mavlink 0.20.0 (MSRV 1.88; 3 releases in 2 weeks), toml 1.1.8, clap 4.6.7, csv 1.4.0, wasm-bindgen(-cli) 0.2.129, proptest 1.12.0, libm 0.2.16, serde 1.0.229.
-   - mavlink 0.20 feature names checked: `dialect-common`, `transport-udp`; there are no `common` or `udp` features.
-   - MAVLink fields checked against `common.xml`: AHRS bit 0x200000, RC receiver bit 0x10000, `energy_consumed` in hJ (/36 → Wh, -1 = unknown), `relative_alt` in mm, `eph` = HDOP×100, `landed_state` in EXTENDED_SYS_STATE.
-   - Energy example recomputed: 21.5625 / 29.5625 / 34.5625 / 3.3333 Wh, correct.
-   - Codex's claim that "energy is monotonic in altitude" is a false property, and I confirmed it: E_rtl at d=0 is 3.333, 1.667 and 3.333 Wh at h = 0, 30 and 60 m.
-   - Confirmed by reasoning: the Disarm-stuck-on-recovery hazard and the overlapping marginal hysteresis.
-   - Dropped Codex's caveat about not being able to reach crates.io; I checked the versions directly.
-4. **Revise:** same Antigravity Opus model with all 19 verified findings inline. One small wording fix was made by hand (success criterion 11).
-
-Working files are on the box in `/workspace/rustplan/`: `PLAN_draft.md`, `REVIEW_codex.md`, `findings.txt`, `PLAN_rev.md`.
 
 ---
 
